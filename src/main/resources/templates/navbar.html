@@ -6,7 +6,7 @@
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <a href="/browse-products">
+                    <a href="#not_in_this_Use_Case(/browse-products)">
                         <img src="images/Cartel.png" width="125px">
                     </a>
                 </div>
@@ -18,8 +18,8 @@
                 <nav>
                     <ul class="MenuItems">
                         <div class="menu-items-home-about">
-                            <li><a href="/browse-products">Home</a></li>
-                            <li><a href="/about">About</a></li>
+                            <li><a href="#not_in_this_Use_Case(/browse-products)">Home</a></li>
+                            <li><a href="#not_in_this_Use_Case(/about)">About</a></li>
                         </div>
                         <li>
                             <button style="font-family: 'Times New Roman', Times, serif; font-size: 16px;" class="dropbtn btnCart btnLogIn" onclick="showCategoriesDropdown()">
@@ -27,21 +27,21 @@
                             </button>
                             <div id="categoriesDropDown" class="dropdown-content">
                                 <!-- ALL LINKS WILL GO -->
-                                <a href="browse-products.jsp?category=Bathroom">Bathroom</a>
-                                <a href="browse-products.jsp?category=CleaningSupplies">Cleaning Supplies</a>
-                                <a href="browse-products.jsp?category=FoodSupplies">Food Supplies</a>
-                                <a href="browse-products.jsp?category=Kitchen">Kitchen</a>
-                                <a href="browse-products.jsp?category=Furniture">Furniture</a>
-                                <a href="browse-products.jsp?category=OfficeEquipment">Office Equipment</a>
-                                <a href="browse-products.jsp?category=Stationary">Stationary</a>
-                                <a href="browse-products.jsp?category=Hardware">Hardware</a>
-                                <a href="browse-products.jsp?category=PackagingMaterials">Packaging Materials</a>
-                                <a href="browse-products.jsp?category=Tools">Tools</a>
-                                <a href="browse-products.jsp?category=Lighting">Lighting</a>
+                                <a href="#not_in_this_Use_Case">Bathroom</a>
+                                <a href="#not_in_this_Use_Case">Cleaning Supplies</a>
+                                <a href="#not_in_this_Use_Case">Food Supplies</a>
+                                <a href="#not_in_this_Use_Case">Kitchen</a>
+                                <a href="#not_in_this_Use_Case">Furniture</a>
+                                <a href="#not_in_this_Use_Case">Office Equipment</a>
+                                <a href="#not_in_this_Use_Case">Stationary</a>
+                                <a href="#not_in_this_Use_Case">Hardware</a>
+                                <a href="#not_in_this_Use_Case">Packaging Materials</a>
+                                <a href="#not_in_this_Use_Case">Tools</a>
+                                <a href="#not_in_this_Use_Case">Lighting</a>
                             </div>
                         </li>
                         
-                        <li th:if="${user != null}"> <!-- check "z-index:" !!! -->
+                        <li th:if="${user != null}">
                             <button style="font-family: 'Times New Roman', Times, serif; 
                                             font-size: 16px;" 
                                     class="dropbtn btnCart btnLogIn" 
@@ -53,8 +53,8 @@
                             </button>
     
                             <div id="accountDropDown" class="dropdown-content">
-                                <a href="/profile">Profile</a>
-                                <a href="/full-orders-history">Orders</a>
+                                <a href="#not_in_this_Use_Case(/profile)">Profile</a>
+                                <a href="#not_in_this_Use_Case(/full-orders-history)">Orders</a>
                                 <a href="/my-products">Products</a> <!-- ONLY THIS WILL WORK -->
                             </div>
                         </li>
@@ -66,7 +66,7 @@
                             <a class="btnCart btnLogIn" href="/login"><i class="fa fa-sign-in"></i> Join Cartel</a>
                         </li>
     
-                        <li><a href="/cart" class="btnCart"><img src="images/shopping_cart.png" width="20px" height="20px"></a>
+                        <li><a href="#not_in_this_Use_Case(/cart)" class="btnCart"><img src="images/shopping_cart.png" width="20px" height="20px"></a>
                     </ul> <!-- end of Menu Items -->
                 </nav>
             </div> <!-- end of navbar -->

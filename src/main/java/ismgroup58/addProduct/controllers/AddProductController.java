@@ -1,4 +1,4 @@
-package ismgroup58.addProduct.controller;
+package ismgroup58.addProduct.controllers;
 
 public class AddProductController {
     

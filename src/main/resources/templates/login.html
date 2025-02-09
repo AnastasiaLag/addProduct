@@ -16,26 +16,26 @@
 
         <!-- HERE OR AS A FRAGMENT IF I USE FRAGMENTS FOLDER -->
          
-        <!-- MUST ADD CSS AND IMAGES -->
-        <!-- <link rel="stylesheet" href="<%=request.getContextPath() %>/css/style.css">
+        <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="icon" sizes="192x192" href="<%=request.getContextPath()%>/images/Cartel.png" aria-label="Cartel Logo"> -->
+        <link rel="icon" sizes="192x192" href="/images/Cartel.png" aria-label="Cartel Logo">
     </head>
     <body>
-        <div th:replace="navbar :: navbarFragment"></div> <!-- not sure ??? -->
+        <div th:replace="navbar :: navbarFragment"></div>
         <!-- IF FRAGMENTS FOLDER: <div th:replace="fragments/navber :: headerNavbar"></div> -->
 
         <!--account page-->
         <div class="account-page">	
 
-            <div class="errormessage" role="alert" th:if="${errorMessage != null}">
-                <%= errorMessage %> <!-- THIS HAS TO CHANGE -->
-            </div>
+            <!-- THIS HAS TO CHANGE -->
+            <!-- <div class="errormessage" role="alert" th:if="${errorMessage != null}">
+                <%= errorMessage %> 
+            </div> -->
 
             <div class="container">
                 <div class="row">
                     <div class="col-2">
-                        <img src="images/Cartel.png" width="100%">
+                        <img src="/images/Cartel.png" alt="Cartel Logo" width="100%">
                     </div>
                     <div class="col-2">
                         <div class="form-container">
@@ -107,5 +107,6 @@
             }
         
         </script>
+
     </body>
 </html>

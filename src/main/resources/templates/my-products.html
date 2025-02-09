@@ -1,8 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page errorPage="error.jsp"%>
-<%@ page import="cartel.*, java.util.List, java.util.ArrayList" %>
-
-<%
+<!--
 	User user = null;
 	if (session.getAttribute("currentuser") != null) {
 		user = (User) session.getAttribute("currentuser");
@@ -20,17 +16,23 @@
     if (message != null) {
         success = message.contains("successfully");
     }
-%>
+-->
 
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <%@ include file="header.jsp"%>
     <title>My Products - Cartel</title>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=dvice-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" sizes="192x192" href="/images/Cartel.png" aria-label="Cartel Logo">
 </head>
 <body>
-    <%@ include file="navbar.jsp"%>
-    <%-- ERROR OR SUCCESS MESSAGE --%>
-    <%
+    <div th:replace="navbar :: navbarFragment"></div>
+    <!-- ERROR OR SUCCESS MESSAGE -> MUST DO SOMEHOW!!! -->
+    <!-- <%
         if (message != null) {
             if (success) {
             %>
@@ -49,7 +51,7 @@
             <%
             session.setAttribute("message", null); //make sure the message doesn't appear again when page is refreshed
         }
-    %>
+    %> -->
 <%
     List<Product> myproducts_before = new ArrayList<Product>();
     List<Product> myproducts = null;
