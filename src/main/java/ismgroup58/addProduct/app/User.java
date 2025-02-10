@@ -14,7 +14,7 @@ public class User {
     private String image;
     private String joined;
 
-    /* First Constructor PROBBABLY WON'T NEED IT IN THIS PROJECT*/
+    /* First Constructor (for new users) */
     public User(String name, String email, String ssn,
                 String username, String password) {
         this.name = name;
@@ -25,7 +25,7 @@ public class User {
         this.image = "resources/static/images/profile-default.png";
     }
 
-    /* Second Constructor */
+    /* Second Constructor (for existing users) */
     public User(String name, String email, String ssn,
                 String username, String password, String phone, 
                 String city, String address, int zip, String image, String joined) {
