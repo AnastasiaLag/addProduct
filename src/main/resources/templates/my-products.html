@@ -1,22 +1,3 @@
-<!--
-	User user = null;
-	if (session.getAttribute("currentuser") != null) {
-		user = (User) session.getAttribute("currentuser");
-	}
-    if (user == null) {
-        session.setAttribute("source", "my-products.jsp");
-        request.setAttribute("message", "You have to log in to view your products!");
-        %>
-        <jsp:forward page="login.jsp"/>
-        <%
-    }
-    //success or error message!
-    String message = (String) session.getAttribute("message");
-    boolean success = false;
-    if (message != null) {
-        success = message.contains("successfully");
-    }
--->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
@@ -27,7 +8,8 @@
 
 <body>
     <div th:replace="~{fragments/navbar :: navbarFragment}"></div>
-    <div th:if="${message}" th:classappend="${success} ? 'successmessage' : 'errormessage' " id="messageOnTop">
+
+    <div th:if="${message != null}" th:classappend="${success} ? 'successmessage' : 'errormessage' " id="messageOnTop">
         <span th:text="${message}"></span>
         <span style="margin-bottom: 5px; top: 0; cursor: pointer;" class="close" id="closeMessage"></span>
     </div>
@@ -52,26 +34,7 @@
             session.setAttribute("message", null); //make sure the message doesn't appear again when page is refreshed
         }
     %> -->
-<!-- <%
-    List<Product> myproducts_before = new ArrayList<Product>();
-    List<Product> myproducts = null;
-    try {
-        ProductService ps = new ProductService();
-        myproducts_before = ps.viewMyProducts(user.getUsername());
-        
-        /* Sorting */
-        String sort = request.getParameter("sort");
-        if (sort == null) {
-            sort = "default";
-        }
-        myproducts = ps.sortProducts(myproducts_before, sort);
-    
-    } catch (Exception e) {
-        throw new Exception(e.getMessage());
-    }
-    if (myproducts.isEmpty()) {
-%> -->
-    <div class="small-container" style="text-align: center;">
+    <div th:if="${myproducts.isEmpty()}" class="small-container" style="text-align: center;">
         <div class="row">
             <h1 style="color: #3b8e72;">You currently have no products</h2>
         </div>
@@ -79,7 +42,7 @@
 <!-- <%
     } else {
 %>
-    <div class="small-container" style="margin-top: 55px;">
+    <div th:if="${!myproducts.isEmpty()}" class="small-container" style="margin-top: 55px;">
         <div class="row row-2" style="margin-bottom: 15px;">
             <h2>My Products</h2>
             <h3 style="color: var(--primary-color);">Click a product to see its reviews</h4>

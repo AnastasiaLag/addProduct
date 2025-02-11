@@ -22,8 +22,8 @@
 
             <!-- THIS HAS TO CHANGE -->
             <!-- ERROR if user is not logged in and tries to see my-products.hmtl -->
-            <div class="errormessage" role="alert" th:if="${errormessage != null}">
-                <span th:text="${errormessage}">Error!!</span>
+            <div class="errormessage" role="alert" th:if="${session.errormessage != null}">
+                <span th:text="${session.errormessage}">Error!!</span>
             </div>
 
             <div class="container">

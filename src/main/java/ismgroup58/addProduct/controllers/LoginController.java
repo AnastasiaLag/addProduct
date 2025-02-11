@@ -30,12 +30,13 @@ public class LoginController {
     public String loginController(@RequestParam("login_username") String username,
                                 @RequestParam("login_password") String password,
                                 Model model, HttpSession session) {
-
+        
+        // here will be the authentication (this is for testing)
         session.setAttribute("username", username);
         return "redirect:/my-products";
         // try {
         //     User user = us.authenticate(username, password);
-        //     model.addAttribute("currentuser", user);
+        //     session.addAttribute("currentuser", user);
         //     return "redirect:/my-products";
         // } catch (Exception e) {
         //     model.addAttribute("message", e.getMessage());

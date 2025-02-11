@@ -41,13 +41,13 @@
                             </div>
                         </li>
                         
-                        <li th:if="${session.username != null}">
+                        <li th:if="${session.currentuser != null}">
                             <button style="font-family: 'Times New Roman', Times, serif; 
                                             font-size: 16px;" 
                                     class="dropbtn btnCart btnLogIn" 
                                     onclick="showAccountDropdown()">
                                 <!-- Username IS THE TEXT ON THE BUTTON -->
-                                <span th:text="${session.username}">Username</span>
+                                <span th:text="${session.currentuser.getUsername()}">Username</span>
                                 <!-- Dropdown Icon -->
                                 <i class="fa fa-caret-down"></i>
                             </button>
@@ -58,11 +58,11 @@
                                 <a href="/my-products">Products</a> <!-- ONLY THIS WILL WORK -->
                             </div>
                         </li>
-                        <li th:if="${session.username != null}"> <!-- not sure... -->
+                        <li th:if="${session.currentuser != null}">
                             <a class="btnCart btnLogIn" href="/logout"><i class="fa fa-sign-out"></i> Log out</a>
                         </li>
                        
-                        <li th:if="${session.username == null}">
+                        <li th:if="${session.currentuser == null}">
                             <a class="btnCart btnLogIn" href="/login"><i class="fa fa-sign-in"></i> Join Cartel</a>
                         </li>
     
