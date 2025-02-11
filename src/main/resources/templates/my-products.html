@@ -52,7 +52,7 @@
             session.setAttribute("message", null); //make sure the message doesn't appear again when page is refreshed
         }
     %> -->
-<%
+<!-- <%
     List<Product> myproducts_before = new ArrayList<Product>();
     List<Product> myproducts = null;
     try {
@@ -70,13 +70,13 @@
         throw new Exception(e.getMessage());
     }
     if (myproducts.isEmpty()) {
-%>
+%> -->
     <div class="small-container" style="text-align: center;">
         <div class="row">
             <h1 style="color: #3b8e72;">You currently have no products</h2>
         </div>
         <img src="images/no-products-icon.png" style="align: center; margin-top: 30px; margin-bottom: 30px;">
-<%
+<!-- <%
     } else {
 %>
     <div class="small-container" style="margin-top: 55px;">
@@ -128,13 +128,26 @@
         </div>   
 <%         
     } // end of if-statement
-%>
+%> -->
         <div style="text-align: center; margin-top:-40px;">
-            <a href="addProductForm.jsp" class="btn">Add a new product</a>
+            <a href="/my-products/addProduct" class="btn">Add a new product</a>
         </div>
     </div> <!-- end of div "small container" -->
     
-    <%@ include file="footer.jsp"%>
+    <!-- Footer HERE OR AS A FRAGMENT IF I USE FRAGMENTS FOLDER-->
+    <div class="footer">
+        <div class="container">
+            <h3>
+                &copy; 2024 Cartel<br>
+                All rights reserved.
+            </h3>
+        </div>
+    </div>
+
+    <!-- Scripts --> 
+    <script src="js/main.js"></script>
+    <script src="js/dropdowns.js"></script>
+
     <script>
         function updateSortParameter() {
             const sortValue = document.getElementById('sort-options').value;

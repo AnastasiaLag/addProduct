@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import ismgroup58.addProduct.app.User;
-// import ismgroup58.addProduct.data.UserService;
-
 //import ismgroup58.addProduct.data.UserService;
 
 @Controller
@@ -24,22 +22,24 @@ public class LoginController {
     
     @GetMapping("/login")
     public String joinCartel() {
-        return "login";
+        return "login.html";
     }
 
-    // @PostMapping("/login/controller")
-    // public String loginController(@RequestParam("login_username") String username,
-    //                             @RequestParam("login_password") String password,
-    //                             Model model) {
+    @PostMapping("/login/controller")
+    public String loginController(@RequestParam("login_username") String username,
+                                @RequestParam("login_password") String password,
+                                Model model) {
 
-    //     try {
-    //         User user = us.authenticate(username, password);
-    //         model.addAttribute("currentuser", user);
-    //         return "redirect:/my-products";
-    //     } catch (Exception e) {
-    //         model.addAttribute("message", e.getMessage());
-    //         return "redirect:/login";
-    //     }
-    // }
+        model.addAttribute("username", username);
+        return "redirect:/my-products";
+        // try {
+        //     User user = us.authenticate(username, password);
+        //     model.addAttribute("currentuser", user);
+        //     return "redirect:/my-products";
+        // } catch (Exception e) {
+        //     model.addAttribute("message", e.getMessage());
+        //     return "redirect:/login";
+        // }
+    }
 
 }
