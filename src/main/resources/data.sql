@@ -1,5 +1,3 @@
-use ismgroup58;
-
 insert into user
 values ('TechForge Industries', 'info@techforge.com', '293847561', 'techforge', 'vbn920jd', '2020-01-15', 'images/users/TechForge.png', '6922334455', 'Veroia', '8 Papadopoulou St.', 19840), 
  ('PackNest Solutions', 'info@packnest.com', '384756109', 'packNest', 'g5wyhDEWRV', '2018-09-11', 'images/users/packnest.png', '6933445566', 'Athens', '16 Karachaliou St.', 11232),

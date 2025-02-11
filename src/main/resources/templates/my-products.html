@@ -17,20 +17,20 @@
         success = message.contains("successfully");
     }
 -->
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+    <div th:replace="~{fragments/header :: headerFragment}"></div>
     <title>My Products - Cartel</title>
-    <meta charset="UTF-8">
-    <meta name="viewpoint" content="width=dvice-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" sizes="192x192" href="/images/Cartel.png" aria-label="Cartel Logo">
 </head>
+
 <body>
-    <div th:replace="navbar :: navbarFragment"></div>
+    <div th:replace="~{fragments/navbar :: navbarFragment}"></div>
+    <div th:if="${message}" th:classappend="${success} ? 'successmessage' : 'errormessage' " id="messageOnTop">
+        <span th:text="${message}"></span>
+        <span style="margin-bottom: 5px; top: 0; cursor: pointer;" class="close" id="closeMessage"></span>
+    </div>
     <!-- ERROR OR SUCCESS MESSAGE -> MUST DO SOMEHOW!!! -->
     <!-- <%
         if (message != null) {
@@ -134,19 +134,7 @@
         </div>
     </div> <!-- end of div "small container" -->
     
-    <!-- Footer HERE OR AS A FRAGMENT IF I USE FRAGMENTS FOLDER-->
-    <div class="footer">
-        <div class="container">
-            <h3>
-                &copy; 2024 Cartel<br>
-                All rights reserved.
-            </h3>
-        </div>
-    </div>
-
-    <!-- Scripts --> 
-    <script src="js/main.js"></script>
-    <script src="js/dropdowns.js"></script>
+    <div th:replace="~{fragments/footer :: footerFragment}"></div>
 
     <script>
         function updateSortParameter() {

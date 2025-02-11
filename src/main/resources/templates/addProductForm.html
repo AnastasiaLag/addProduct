@@ -9,18 +9,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+    <div th:replace="~{fragments/header :: headerFragment}"></div>
     <title>Add Product - Cartel</title>
-    <meta charset="UTF-8">
-    <meta name="viewpoint" content="width=dvice-width, initial-scale=1.0">
-
-    <!-- HERE OR AS A FRAGMENT IF I USE FRAGMENTS FOLDER -->
-        
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" sizes="192x192" href="/images/Cartel.png" aria-label="Cartel Logo">
 </head>
 <body>
-    <div th:replace="navbar :: navbarFragment"></div>
+    <div th:replace="~{fragments/navbar :: navbarFragment}"></div>
 
     <div class="small-container single-product">
         <form class="row" action="/my-products/addProduct/controller" method="POST">
@@ -77,19 +70,7 @@
         </form>
     </div>
     
-    <!-- Footer HERE OR AS A FRAGMENT IF I USE FRAGMENTS FOLDER-->
-    <div class="footer">
-        <div class="container">
-            <h3>
-                &copy; 2024 Cartel<br>
-                All rights reserved.
-            </h3>
-        </div>
-    </div>
-
-    <!-- Scripts --> 
-    <script src="js/main.js"></script>
-    <script src="js/dropdowns.js"></script>
+    <div th:replace="~{fragments/footer :: footerFragment}"></div>
 
 </body>
 

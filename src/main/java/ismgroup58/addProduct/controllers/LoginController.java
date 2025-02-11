@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import ismgroup58.addProduct.app.User;
 //import ismgroup58.addProduct.data.UserService;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
@@ -28,9 +29,9 @@ public class LoginController {
     @PostMapping("/login/controller")
     public String loginController(@RequestParam("login_username") String username,
                                 @RequestParam("login_password") String password,
-                                Model model) {
+                                Model model, HttpSession session) {
 
-        model.addAttribute("username", username);
+        session.setAttribute("username", username);
         return "redirect:/my-products";
         // try {
         //     User user = us.authenticate(username, password);
@@ -40,6 +41,12 @@ public class LoginController {
         //     model.addAttribute("message", e.getMessage());
         //     return "redirect:/login";
         // }
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "logout.html";
     }
 
 }

@@ -1,5 +1,3 @@
-use ismgroup58;
-
 /*
 drop table product; 
 drop table user;
