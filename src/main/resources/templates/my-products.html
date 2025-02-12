@@ -9,7 +9,7 @@
 <body>
     <div th:replace="~{fragments/navbar :: navbarFragment}"></div>
 
-    <div th:if="${message != null}" th:classappend="${success} ? 'successmessage' : 'errormessage' " id="messageOnTop">
+    <div th:if="${session.message != null}" th:classappend="${session.success} ? 'successmessage' : 'errormessage' " id="messageOnTop">
         <span th:text="${message}"></span>
         <span style="margin-bottom: 5px; top: 0; cursor: pointer;" class="close" id="closeMessage"></span>
     </div>
@@ -34,7 +34,7 @@
             session.setAttribute("message", null); //make sure the message doesn't appear again when page is refreshed
         }
     %> -->
-    <div th:if="${myproducts.isEmpty()}" class="small-container" style="text-align: center;">
+    <div th:if="${session.myproducts.isEmpty()}" class="small-container" style="text-align: center;">
         <div class="row">
             <h1 style="color: #3b8e72;">You currently have no products</h2>
         </div>

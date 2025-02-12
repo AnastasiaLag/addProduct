@@ -48,7 +48,7 @@ public class AddProductController {
             success = message.contains("successfully");
         }
         // if it is a message for success, the attribute "success" will be True
-        model.addAttribute("success", success);
+        session.setAttribute("success", success);
 
         // get list of products
         //List<Product> myproducts_before = new ArrayList<Product>();
@@ -67,7 +67,7 @@ public class AddProductController {
         // } catch (Exception e) {
         //     throw new Exception(e.getMessage());
         // }
-        model.addAttribute("myproducts", myproducts);
+        session.setAttribute("myproducts", myproducts);
 
         
         return "my-products.html";
