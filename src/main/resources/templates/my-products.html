@@ -39,10 +39,8 @@
             <h1 style="color: #3b8e72;">You currently have no products</h2>
         </div>
         <img src="images/no-products-icon.png" style="align: center; margin-top: 30px; margin-bottom: 30px;">
-<!-- <%
-    } else {
-%>
-    <div th:if="${!myproducts.isEmpty()}" class="small-container" style="margin-top: 55px;">
+    </div>
+    <div th:if="${session.myproducts.isEmpty() == false}" class="small-container" style="margin-top: 55px;">
         <div class="row row-2" style="margin-bottom: 15px;">
             <h2>My Products</h2>
             <h3 style="color: var(--primary-color);">Click a product to see its reviews</h4>
@@ -55,43 +53,31 @@
             </div>
         </div>
         <div class="row">
-    <%
+    <!-- <%
         for (Product product: myproducts) {
-    %>
-            <div class="col-4 product-container">
+    %> -->
+            <div class="col-4 product-container" th:each="product : ${session.myproducts}">
                 <div class="image-container">
-                    <img src="<%= product.getImage()%>" onclick="window.location.href='product-reviews.jsp?productId=<%= product.getProductID()%>'" style="cursor: pointer;">
+                    <img th:src="@{${product.getImage()}}" alt="Image" onclick="window.location.href=`product-reviews?productId='${product.getProductID()}'`" style="cursor: pointer;">
                     <div class="overlay">
-                        <h4><%= product.getName()%></h4>
+                        <h4 th:text="${product.getName()}">Product Name</h4>
                         <div class="manage-buttons">
-                            <a href="editProduct.jsp?productID=<%= product.getProductID()%>" class="edit-btn"><i class="fa fa-pencil"></i></a>
-                            <a href="deleteProductController.jsp?productID=<%= product.getProductID()%>" class="delete-btn"><i class="fa fa-trash"></i></a>
+                            <a href="#editProduct?productID=${product.getProductID()}" class="edit-btn"><i class="fa fa-pencil"></i></a>
+                            <a href="#delete?productID=${product.getProductID()}" class="delete-btn"><i class="fa fa-trash"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="rating">
-        <%
-            for (int i=0; i < product.getRating(); i++) {
-        %>
-                    <i class="fa fa-star"></i>
-        <%
-            }
-            for (int i=0; i < 5 - product.getRating(); i++) {
-        %>
+                <div class="rating"> <!-- for now all 0 stars, maybe dynamic later-->
                     <i class="fa fa-star-o"></i>
-        <%
-            }
-        %>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
                 </div>
-                <p>$<%= product.getPrice()%></p>
+                <p th:text="${product.getPrice()}">$</p>
             </div> 
-    <%  
-        } // end of for-loop
-    %>
         </div>   
-<%         
-    } // end of if-statement
-%> -->
+
         <div style="text-align: center; margin-top:-40px;">
             <a href="/my-products/addProduct" class="btn">Add a new product</a>
         </div>

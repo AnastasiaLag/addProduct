@@ -1,6 +1,5 @@
 package ismgroup58.addProduct.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -19,11 +18,11 @@ import jakarta.servlet.http.HttpSession;
 @RequestMapping("my-products")
 public class AddProductController {
     
-    // private final ProductService ps;
+    private final ProductService ps;
 
-    // public AddProductController(ProductService ps) {
-    //     this.ps = ps;
-    // }
+    public AddProductController(ProductService ps) {
+        this.ps = ps;
+    }
 
     @GetMapping("")
     public String showMyProductsPage(HttpSession session, Model model) {
@@ -53,20 +52,19 @@ public class AddProductController {
         // get list of products
         //List<Product> myproducts_before = new ArrayList<Product>();
         List<Product> myproducts = null;
-        // try {
-        //     ProductService ps = new ProductService();
-        //     myproducts_before = ps.viewMyProducts(user.getUsername());
+        try {
+            myproducts = ps.viewMyProducts(user.getUsername());
             
-        //     /* Sorting */
-        //     String sort = request.getParameter("sort");
-        //     if (sort == null) {
-        //         sort = "default";
-        //     }
-        //     myproducts = ps.sortProducts(myproducts_before, sort);
+            /* Sorting */
+            // String sort = request.getParameter("sort");
+            // if (sort == null) {
+            //     sort = "default";
+            // }
+            // myproducts = ps.sortProducts(myproducts_before, sort);
         
-        // } catch (Exception e) {
-        //     throw new Exception(e.getMessage());
-        // }
+        } catch (Exception e) {
+            session.setAttribute("message", e.getMessage());
+        }
         session.setAttribute("myproducts", myproducts);
 
         
