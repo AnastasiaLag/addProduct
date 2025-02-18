@@ -9,37 +9,24 @@
 <body>
     <div th:replace="~{fragments/navbar :: navbarFragment}"></div>
 
+    <!-- ERROR OR SUCCESS MESSAGE -->
     <div th:if="${session.message != null}" th:classappend="${session.success} ? 'successmessage' : 'errormessage' " id="messageOnTop">
         <span th:text="${session.message}">Message</span>
         <span style="margin-bottom: 5px; top: 0; cursor: pointer;" class="close" id="closeMessage">&times;</span>
     </div>
-    <!-- ERROR OR SUCCESS MESSAGE -> MUST DO SOMEHOW!!! -->
-    <!-- <%
-        if (message != null) {
-            if (success) {
-            %>
-                <div class="successmessage"
-            <%
-            } else {
-            %>
-                <div class="errormessage"
-            <%
-            }
-            %>  
-                    id="messageOnTop">
-                    <%= message %>
-                    <span style="margin-bottom: 5px; top: 0; cursor: pointer;" class="close" id="closeMessage">&times;</span>
-                </div>
-            <%
-            session.setAttribute("message", null); //make sure the message doesn't appear again when page is refreshed
-        }
-    %> -->
+    <!-- session.setAttribute("message", null); //make sure the message doesn't appear again when page is refreshed -->
+
+    <!-- If currentuser has no products, show message and "Add a new Product" button only -->
     <div th:if="${session.myproducts.isEmpty()}" class="small-container" style="text-align: center;">
         <div class="row">
             <h1 style="color: #3b8e72;">You currently have no products</h2>
         </div>
-        <img src="images/no-products-icon.png" style="align: center; margin-top: 30px; margin-bottom: 30px;">
+        <img src="images/no-products-icon.png" style="margin-top: 30px; margin-bottom: 30px;">
+        <div style="text-align: center; margin-top:-40px;">
+            <a href="/my-products/addProduct" class="btn">Add a new product</a>
+        </div>
     </div>
+    <!-- If currentuser has products, load them -->
     <div th:if="${session.myproducts.isEmpty() == false}" class="small-container" style="margin-top: 55px;">
         <div class="row row-2" style="margin-bottom: 15px;">
             <h2>My Products</h2>
@@ -52,10 +39,8 @@
                 </select>
             </div>
         </div>
+        <!-- Show all products in an grid -->
         <div class="row">
-    <!-- <%
-        for (Product product: myproducts) {
-    %> -->
             <div class="col-4 product-container" th:each="product : ${session.myproducts}">
                 <div class="image-container">
                     <img th:src="@{${product.getImage()}}" alt="Image" onclick="window.location.href=`product-reviews?productId='${product.getProductID()}'`" style="cursor: pointer;">
@@ -74,14 +59,14 @@
                     <i class="fa fa-star-o"></i>
                     <i class="fa fa-star-o"></i>
                 </div>
-                <p th:text="${product.getPrice()}">$</p>
+                <p th:text="${product.getPrice()} + '$'">0.0 $</p>
             </div> 
         </div>   
 
         <div style="text-align: center; margin-top:-40px;">
             <a href="/my-products/addProduct" class="btn">Add a new product</a>
         </div>
-    </div> <!-- end of div "small container" -->
+    </div>
     
     <div th:replace="~{fragments/footer :: footerFragment}"></div>
 

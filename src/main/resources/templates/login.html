@@ -15,12 +15,11 @@
     </head>
     <body>
         <div th:replace="~{fragments/navbar :: navbarFragment}"></div>
-        <!-- IF FRAGMENTS FOLDER: <div th:replace="fragments/navber :: headerNavbar"></div> -->
 
         <!--account page-->
         <div class="account-page">	
 
-            <!-- THIS HAS TO CHANGE -->
+            <!-- THIS HAS TO CHANGE (model) -->
             <!-- ERROR if user is not logged in and tries to see my-products.hmtl -->
             <div class="errormessage" role="alert" th:if="${session.errormessage != null}">
                 <span th:text="${session.errormessage}">Error!!</span>

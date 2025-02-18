@@ -82,7 +82,6 @@ public class ProductRepository {
         String query = "INSERT INTO product (productName, image,"
                     + " category, price, stock, description, supplier)" 
                     + " VALUES (?, ?, ?, ?, ?, ?, ?);";
-        
         try {
             jdbcTemplate.update(query, name, image, category, price, stock, description, supplier);
         } catch (Exception e) {

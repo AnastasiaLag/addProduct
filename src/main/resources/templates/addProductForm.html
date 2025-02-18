@@ -23,7 +23,6 @@
                         <option value="" disabled selected>Select Category</option>
                         <option value="Bathroom">Bathroom</option>
                         <option value="CleaningSupplies">Cleaning Supplies</option>
-                        <option value="Bathroom">Bathroom</option>
                         <option value="FoodSupplies">Food Supplies</option>
                         <option value="Kitchen">Kitchen</option>
                         <option value="Furniture">Furniture</option>
@@ -36,9 +35,9 @@
                     </select>
                 </p>
                 <!-- Hidden pass of the supplier username -->
-                <input type="hidden" name="supplier" value="username"> <!-- must get it from model-->
+                <input type="hidden" name="supplier" th:value="${session.currentuser.getUsername()}">
                 <input type="text" style="font-size: 48px; font-weight: bold;" name="name" placeholder="Name" required>
-                <h3>by username</span></h3> <!-- must get it from model-->
+                <h3 th:text="'by ' + ${session.currentuser.getUsername()}">by username</span></h3>
                 <div style="display: flex; align-items: center;">
                     <span style="font-size: 20px; font-weight: bold; margin-right: 5px;">$ </span>
                     <input type="number" step="0.01" style="font-size: 20px; font-weight: bold; width: 28%;" name="price" placeholder="Price" required>

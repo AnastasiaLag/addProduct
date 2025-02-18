@@ -66,8 +66,7 @@ public class AddProductController {
             session.setAttribute("message", e.getMessage());
         }
         session.setAttribute("myproducts", myproducts);
-
-        
+  
         return "my-products.html";
     }
 
