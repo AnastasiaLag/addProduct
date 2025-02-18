@@ -73,7 +73,19 @@ public class AddProductController {
 
     /********************** ADD PRODUCT **********************/
     @GetMapping("/addProduct")
-    public String openAddProductForm() {
+    public String openAddProductForm(HttpSession session) {
+        // retrieve the logged-in user from the session (or null)
+        User user = null;
+        if (session.getAttribute("currentuser") != null) {
+            user = (User) session.getAttribute("currentuser");
+        }
+
+        // redirect to login page if there is no current user in the session
+        if (user == null) {
+            session.setAttribute("errormessage",
+                                "You have to log in to view your products and add more!");
+            return "redirect:/login";
+        }
         return "addProductForm.html";
     }
 
@@ -130,4 +142,5 @@ public class AddProductController {
         }
         return "redirect:/my-products";
     }
+
 }
