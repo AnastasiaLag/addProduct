@@ -1,6 +1,5 @@
 package ismgroup58.addProduct.data;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;

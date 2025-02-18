@@ -26,9 +26,9 @@ public class AddProductController {
     }
 
     @GetMapping("")
-    public String showMyProductsPage(
-                                    HttpSession session, Model model) { //@RequestParam(value="sort", required=false) String sort,
-        
+    public String showMyProductsPage(HttpSession session, Model model) { 
+                                    //, @RequestParam(value="sort", required=false) String sort
+                                    
         // retrieve the logged-in user from the session (or null)
         User user = null;
         if (session.getAttribute("currentuser") != null) {
@@ -66,7 +66,7 @@ public class AddProductController {
         } catch (Exception e) {
             session.setAttribute("message", e.getMessage());
         }
-        session.setAttribute("myproducts", myproducts);
+        model.addAttribute("myproducts", myproducts);
   
         return "my-products.html";
     }
