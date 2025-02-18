@@ -17,7 +17,7 @@ The user sees their products, can edit, delete and add products, as well as see 
 | 1.  The user logs into the aplication. | username, password |
 | 2.  The user clicks the _Add a new product_ button. | user |
 | 3.  A form opens with the information needed to fill in for the new product. | - |
-| 4.  After completing, the user clicks _Add Product_ and is redirected to the previous page with a message confirming the addition was successfull. | category, name, priec, stock, description |
+| 4.  After completing, the user clicks _Add Product_ and is redirected to the previous page with a message confirming the addition was successfull. | category, name, price, stock, description |
 | 5.  The user can select the _delete_ button (🗑️) to delete a product and a message appears indicationg the deletion was successful. | productID |
 | 6.  The user can select the _edit_ button (✏️) to edit a product's data. | productID |
 | 7.  A from opens with the existing information for the product and the user can change whatever they want. | productID |
