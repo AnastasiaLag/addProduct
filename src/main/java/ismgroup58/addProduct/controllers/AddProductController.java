@@ -1,6 +1,7 @@
 package ismgroup58.addProduct.controllers;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +26,8 @@ public class AddProductController {
     }
 
     @GetMapping("")
-    public String showMyProductsPage(HttpSession session, Model model) {
+    public String showMyProductsPage(
+                                    HttpSession session, Model model) { //@RequestParam(value="sort", required=false) String sort,
         
         // retrieve the logged-in user from the session (or null)
         User user = null;
@@ -54,13 +56,12 @@ public class AddProductController {
         List<Product> myproducts = null;
         try {
             myproducts = ps.viewMyProducts(user.getUsername());
-            
-            /* Sorting */
-            // String sort = request.getParameter("sort");
+            // sorting
             // if (sort == null) {
             //     sort = "default";
             // }
             // myproducts = ps.sortProducts(myproducts_before, sort);
+            // System.out.println(myproducts.get(0));
         
         } catch (Exception e) {
             session.setAttribute("message", e.getMessage());
@@ -70,6 +71,7 @@ public class AddProductController {
         return "my-products.html";
     }
 
+    /********************** ADD PRODUCT **********************/
     @GetMapping("/addProduct")
     public String openAddProductForm() {
         return "addProductForm.html";
@@ -89,6 +91,42 @@ public class AddProductController {
             session.setAttribute("message", "Product added successfully!");
         } catch (Exception e) {
             session.setAttribute("message", "Something went wrong! Failed to add product!");
+        }
+        return "redirect:/my-products";
+    }
+
+    /******************** DELETE PRODUCT ********************/
+    @GetMapping("/delete")
+    public String deleteProduct(@RequestParam("productID") int productID, HttpSession session) {
+        try {
+            ps.deleteProduct(productID);
+            session.setAttribute("message", "Product deleted successfully!");
+        } catch (Exception e) {
+            session.setAttribute("message", "Something went wrong! Failed to delete product!");
+        }
+        return "redirect:/my-products";
+    }
+
+    /********************* EDIT PRODUCT *********************/
+    @GetMapping("/edit")
+    public String openEditProductForm(@RequestParam("productID") int productID, Model model) {
+        Product product = ps.getProductById(productID);
+        model.addAttribute("product", product);
+        return "editProduct.html";
+    }
+
+    @PostMapping("/edit/controller")
+    public String editProduct(@RequestParam("name") String name, 
+                                @RequestParam("price") double price,
+                                @RequestParam("stock") int stock,
+                                @RequestParam("description") String description,
+                                @RequestParam("productID") int productID,
+                                HttpSession session) {
+        try {
+            ps.updateProductDetails(productID, name, price, stock, description);
+            session.setAttribute("message", "Product edited successfully!");
+        } catch (Exception e) {
+            session.setAttribute("message", "Something went wrong! Editting failed!");
         }
         return "redirect:/my-products";
     }

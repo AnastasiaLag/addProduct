@@ -1,5 +1,7 @@
 package ismgroup58.addProduct.data;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +45,16 @@ public class ProductRepository {
      * @param sort String
      * @return List<Product>
      */
-    // public List<Product> sortProducts(List<Product> products, String sort) {
-    // }
+    public List<Product> sortProducts(List<Product> products, String sort) {
+        if (sort.equals("price")) {
+            // Sort by price in ascending order
+            Collections.sort(products, Comparator.comparingDouble(Product::getPrice));
+        } else if (sort.equals("rating")) {
+            // Sort by rating in descending order
+            Collections.sort(products, Comparator.comparingInt(Product::getRating).reversed());
+        }
+        return products;
+    }
 
     /**
      * Returns a Product object given its id.
@@ -53,13 +63,10 @@ public class ProductRepository {
      * @return Product Object
      * @throws Exception if something goes wrong in the DB
      */
-    public Product getProductById(int productId) throws Exception {
+    public Product getProductById(int productId) {
         String query = "SELECT * FROM product WHERE productID = ?;";
-        try {
-            return jdbcTemplate.queryForObject(query, new ProductMapper(), productId);
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
+        return jdbcTemplate.queryForObject(query, new ProductMapper(), productId);
+
     }
 
     /**
@@ -89,5 +96,41 @@ public class ProductRepository {
         } 
     }
 
-    //maybe "delete" and "edit" functions if everything goes well and there is time
+    /**
+     * This method deletes a product from the database
+     * based on a given product id.
+     * 
+     * @param productID the id of the product the user wants to delete
+     * @throws Exception if something goes wrong
+     */
+    public void deleteProduct(int productID) throws Exception {
+        String query = "DELETE FROM product WHERE productID = ?;";
+        try {
+            jdbcTemplate.update(query, productID);
+        } catch (Exception e) {    
+            throw new Exception("Error: " + e.getMessage());
+        } 
+    }
+
+    /**
+     * This method updates the database when the user
+     * edits something in the product's details.
+     * 
+     * @param productID the id of the product the user wants to edit
+     * @param name updated name
+     * @param price updated price
+     * @param stock updated stock
+     * @param description updted description
+     * @throws Exception if something goes wrong
+     */
+    public void updateProductDetails(int productID, String name, double price,
+                                    int stock, String description) throws Exception {
+        String query = "UPDATE product SET productName = ?, price = ?, "
+                    + "stock = ?, description = ? WHERE productID = ?;";
+        try {
+            jdbcTemplate.update(query, name, price, stock, description, productID);
+        } catch (Exception e) {
+            throw new Exception("Error: " + e.getMessage());
+        }
+    }
 }

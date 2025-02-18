@@ -37,7 +37,7 @@
                 <!-- Hidden pass of the supplier username -->
                 <input type="hidden" name="supplier" th:value="${session.currentuser.getUsername()}">
                 <input type="text" style="font-size: 48px; font-weight: bold;" name="name" placeholder="Name" required>
-                <h3 th:text="'by ' + ${session.currentuser.getUsername()}">by username</span></h3>
+                <h3 th:text="'by ' + ${session.currentuser.getUsername()}">by username</h3>
                 <div style="display: flex; align-items: center;">
                     <span style="font-size: 20px; font-weight: bold; margin-right: 5px;">$ </span>
                     <input type="number" step="0.01" style="font-size: 20px; font-weight: bold; width: 28%;" name="price" placeholder="Price" required>

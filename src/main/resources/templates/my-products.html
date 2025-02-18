@@ -47,8 +47,8 @@
                     <div class="overlay">
                         <h4 th:text="${product.getName()}">Product Name</h4>
                         <div class="manage-buttons">
-                            <a href="#editProduct?productID=${product.getProductID()}" class="edit-btn"><i class="fa fa-pencil"></i></a>
-                            <a href="#delete?productID=${product.getProductID()}" class="delete-btn"><i class="fa fa-trash"></i></a>
+                            <a th:href="@{my-products/edit(productID=${product.getProductID()})}" class="edit-btn"><i class="fa fa-pencil"></i></a>
+                            <a th:href="@{my-products/delete(productID=${product.getProductID()})}" class="delete-btn"><i class="fa fa-trash"></i></a>
                         </div>
                     </div>
                 </div>

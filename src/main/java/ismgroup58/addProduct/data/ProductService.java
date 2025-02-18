@@ -1,5 +1,6 @@
 package ismgroup58.addProduct.data;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,16 @@ public class ProductService {
     }    
 
     /**
+     * @see ismgroup58.addProduct.data.ProductRepository#sortProducts(List<Product>, String)
+     */
+    public List<Product> sortProducts(List<Product> products, String sort) {
+        return pr.sortProducts(products, sort);
+    }
+
+    /**
      * @see ismgroup58.addProduct.data.ProductRepository#getProductById(int)
      */
-    public Product getProductById(int productId) throws Exception {
+    public Product getProductById(int productId) {
         return pr.getProductById(productId);
     } 
 
@@ -39,4 +47,20 @@ public class ProductService {
                         String supplier) throws Exception {
         pr.addProduct(name, image, category, price, stock, description, supplier);
     }
+
+    /**
+     * @see ismgroup.addProduct.data.ProductRepository#deleteProduct(int)
+     */
+    public void deleteProduct(int productID) throws Exception {
+        pr.deleteProduct(productID);
+    }
+
+    /**
+     * @see ismgroup.addProduct.data.ProductRepository#updateProductDetails(int, String, douple, int, String)
+     */
+    public void updateProductDetails(int productID, String name, double price,
+                                    int stock, String description) throws Exception {
+        pr.updateProductDetails(productID, name, price, stock, description);
+    }
+
 }
