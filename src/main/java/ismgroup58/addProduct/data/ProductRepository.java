@@ -90,5 +90,5 @@ public class ProductRepository {
         } 
     }
 
-    //maybe delete and edit functions if everything goes well and there is time
+    //maybe "delete" and "edit" functions if everything goes well and there is time
 }

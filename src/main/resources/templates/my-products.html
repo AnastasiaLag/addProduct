@@ -10,8 +10,8 @@
     <div th:replace="~{fragments/navbar :: navbarFragment}"></div>
 
     <div th:if="${session.message != null}" th:classappend="${session.success} ? 'successmessage' : 'errormessage' " id="messageOnTop">
-        <span th:text="${message}"></span>
-        <span style="margin-bottom: 5px; top: 0; cursor: pointer;" class="close" id="closeMessage"></span>
+        <span th:text="${session.message}">Message</span>
+        <span style="margin-bottom: 5px; top: 0; cursor: pointer;" class="close" id="closeMessage">&times;</span>
     </div>
     <!-- ERROR OR SUCCESS MESSAGE -> MUST DO SOMEHOW!!! -->
     <!-- <%

@@ -84,7 +84,13 @@ public class AddProductController {
                                     @RequestParam("price") Double price,
                                     @RequestParam("stock") int stock,
                                     @RequestParam("description") String description,
-                                    Model model) {
+                                    HttpSession session) {
+        try {
+            ps.addProduct(name, image, category, stock, stock, description, supplier);
+            session.setAttribute("message", "Product added successfully!");
+        } catch (Exception e) {
+            session.setAttribute("message", "Something went wrong! Failed to add product!");
+        }
         return "redirect:/my-products";
     }
 }
