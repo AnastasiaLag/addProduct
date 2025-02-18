@@ -1,8 +1,8 @@
 # Add Product using Spring Boot 🍃
-## Overview
+## Overview 💡
 This project is a Spring Boot application hosted locally that implements a specific 
 use case of a larger group project: **Cartel: a B2B e-shop**
-## More about the Use Case «Manage Product(s)» 
+## More about the Use Case «Manage Products» 🧐
 ### Use Case Diagamm 
 A small diagramm illustrating the limits of the specific the application   
 
@@ -31,7 +31,9 @@ The user sees their products, can edit, delete and add products, as well as see 
 | - In steps 4 or 8 the user doesn't choose to proceed and returns to the previous page by clicking _Cancel_ | user |
 | - In steps 4, 5 or 8 something goes wrong and the addition, editing or deletion cannot be done, so the user is redirected to their products' page with a failure message | user |
 
-## Test Cases 📝
+## Setup 🛠️ 
+
+## Test Cases 📝 
 | | Input Data | Expected Results - Responses |
 | --- | --- | --- |
 | 1 | In the login form fill in: <br> Username = ```luxeloom``` <br> Password = ```1112``` | Error message display: <br> 🟥 Wrong username or password |
