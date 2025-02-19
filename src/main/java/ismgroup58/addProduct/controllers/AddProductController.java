@@ -26,8 +26,8 @@ public class AddProductController {
     }
 
     @GetMapping("")
-    public String showMyProductsPage(HttpSession session, Model model) { 
-                                    //, @RequestParam(value="sort", required=false) String sort
+    public String showMyProductsPage(HttpSession session, Model model, @RequestParam(value="sort", required=false) String sort) { 
+                                    //
                                     
         // retrieve the logged-in user from the session (or null)
         User user = null;
@@ -52,16 +52,16 @@ public class AddProductController {
         session.setAttribute("success", success);
 
         // get list of products
-        //List<Product> myproducts_before = new ArrayList<Product>();
+        List<Product> myproducts_before = new ArrayList<Product>();
         List<Product> myproducts = null;
         try {
-            myproducts = ps.viewMyProducts(user.getUsername());
-            // sorting
-            // if (sort == null) {
-            //     sort = "default";
-            // }
-            // myproducts = ps.sortProducts(myproducts_before, sort);
-            // System.out.println(myproducts.get(0));
+            myproducts_before = ps.viewMyProducts(user.getUsername());
+            //sorting
+            if (sort == null) {
+                sort = "default";
+            }
+            myproducts = ps.sortProducts(myproducts_before, sort);
+            System.out.println(myproducts.get(0));
         
         } catch (Exception e) {
             session.setAttribute("message", e.getMessage());

@@ -22,7 +22,7 @@ The user sees their products, can edit, delete and add products, as well as see 
 | 6.  The user can select the _edit_ button (✏️) to edit a product's data. | productID |
 | 7.  A form opens with the existing information for the product and the user can change whatever they want. | productID |
 | 8.  The user clicks _Done_ and is redirected to the previous page with a message of success of the addition. | productID, name, price, stock, description |
-| 9.  The user can click ON  product to see all the reviews for that product. | productID |
+| 9.  The user can click on a product to see all the reviews for that product. | productID |
 
 ### Alternative Flows:
 | Actions | Data |
