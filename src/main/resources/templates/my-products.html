@@ -17,7 +17,7 @@
     <!-- session.setAttribute("message", null); //make sure the message doesn't appear again when page is refreshed -->
 
     <!-- If currentuser has no products, show message and "Add a new Product" button only -->
-    <div th:if="${myproducts.isEmpty()}" class="small-container" style="text-align: center;">
+    <div th:if="${myproducts.isEmpty() == true}" class="small-container" style="text-align: center;">
         <div class="row">
             <h1 style="color: #3b8e72;">You currently have no products</h2>
         </div>

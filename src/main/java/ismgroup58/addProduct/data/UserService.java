@@ -25,7 +25,7 @@ public class UserService {
     /**
      * @see ismgroup58.addProduct.data.UserRepository#register(User)
      */
-    // public void register(User user) throws Exception {
-    //     userRepository.register(user);
-    // }
+    public void register(User user) throws Exception {
+        userRepository.register(user);
+    }
 }

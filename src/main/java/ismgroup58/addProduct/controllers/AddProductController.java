@@ -61,10 +61,10 @@ public class AddProductController {
                 sort = "default";
             }
             myproducts = ps.sortProducts(myproducts_before, sort);
-            System.out.println(myproducts.get(0));
         
         } catch (Exception e) {
-            session.setAttribute("message", e.getMessage());
+            //session.setAttribute("message", e.getMessage());
+            //don't handle
         }
         model.addAttribute("myproducts", myproducts);
   

@@ -22,7 +22,7 @@ public class User {
         this.ssn = ssn;
         this.username = username;
         this.password = password;
-        this.image = "resources/static/images/profile-default.png";
+        this.image = "images/profile-default.png";
     }
 
     /* Second Constructor (for existing users) */
@@ -84,5 +84,9 @@ public class User {
     
     public int getZip() {
         return this.zip;
+    }
+    /* Setter */
+    public void setJoined(String joined) {
+        this.joined = joined;
     }
 }
