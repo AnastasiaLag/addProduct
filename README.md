@@ -91,6 +91,8 @@ java -jar target/addProduct-0.0.1-SNAPSHOT.jar
 * Add Image feature
 * Mobile version styling
 * Register controller styling
+* Error handling page
+* Refreshing brings back closed messages
 
 ## ChatGPT 🤖
 * [Conversation 1](https://chatgpt.com/share/67b6748b-10fc-8013-bf58-a87597d96ca2)
