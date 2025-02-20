@@ -47,37 +47,38 @@
                         <!-- for (String field : fields) { -->
                             <div th:each="field : ${fields}">
                                 
-                                    <!-- if (field == "conditions") { -->
-                                        <div th:if="${field == 'conditions'}">
-                                            <!-- if (!conditionsMap.get(field)) { -->
-                                            <div th:if="${conditionsMap.get(field) == false}">
-                                                <label class="checkbox-inline">
-                                                    <input type="checkbox" id="conditions" value="on" name="conditions">I agree to the terms and conditions
-                                                </label>
-                                                <p class="register-error">You must agree to terms and conditions</p>
-                                            </div>
-                                            <!-- } else { -->
-                                            <div th:if="${conditionsMap.get(field) == true}">
-                                                <label class="checkbox-inline">
-                                                    <input type="checkbox" id="conditions" value="on" name="conditions" checked>I agree to the terms and conditions
-                                                </label>
-                                            </div>
-                                            <!-- } end of embedded if -->
-                                        </div>
+                            <!-- if (field == "conditions") { -->
+                                <div th:if="${field == 'conditions'}">
+                                    <!-- if (!conditionsMap.get(field)) { -->
+                                    <div th:if="${conditionsMap.get(field) == false}">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" id="conditions" value="on" name="conditions">I agree to the terms and conditions
+                                        </label>
+                                        <p class="register-error">You must agree to terms and conditions</p>
+                                    </div>
+                                    <!-- } else { -->
+                                    <div th:if="${conditionsMap.get(field) == true}">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" id="conditions" value="on" name="conditions" checked>I agree to the terms and conditions
+                                        </label>
+                                    </div>
+                                    <!-- } end of embedded if -->
+                                </div>
+
+                            <!-- } else { -->
+                                <!-- if (!conditionsMap.get(field)) { -->
+                                <div th:if="${field != 'conditions' && conditionsMap.get(field) == false}">
+                                    <input th:type="${types.get(field)}" th:name="${names.get(field)}" th:placeholder="${placeholders.get(field)}">
+                                    <p class="register-error" th:text="${errMessages.get(field)}">Error!!</p>
+                                </div>
 
                                 <!-- } else { -->
-                                    <!-- if (!conditionsMap.get(field)) { -->
-                                        <div th:if="${field != 'conditions' && conditionsMap.get(field) == false}">
-                                            <input th:type="${types.get(field)}" th:name="${names.get(field)}" th:placeholder="${placeholders.get(field)}">
-                                            <p class="register-error" th:text="${errMessages.get(field)}">Error!!</p>
-                                        </div>
-    
-                                    <!-- } else { -->
-    
-                                        <input th:if="${field != 'conditions' && conditionsMap.get(field) == true}" th:type="${types.get(field)}" th:name="${names.get(field)}" th:value="${values.get(field)}">
-    
-                                    <!-- } end of embedded if -->
-                                <!-- } end of if statement -->
+
+                                <input th:if="${field != 'conditions' && conditionsMap.get(field) == true}" 
+                                    th:type="${types.get(field)}" th:name="${names.get(field)}" th:value="${values.get(field)}">
+
+                                <!-- } end of embedded if -->
+                            <!-- } end of if statement -->
 
                             </div>
                         <!-- } end of for loop-->

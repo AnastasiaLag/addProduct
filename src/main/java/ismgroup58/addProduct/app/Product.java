@@ -11,8 +11,6 @@ public class Product {
     private int rating;
     private String supplier;
 
-    // private int quantity; /* How many in the cart */
-
     /**
      * Constuctor
      *   
@@ -75,12 +73,4 @@ public class Product {
     public String getSupplier() {
         return this.supplier;
     }
-
-    //PROBBALBLY WON'T NEED IN THIS PROJECT 
-    // public void setQuantity(int quantity) {
-    //     this.quantity = quantity;
-    // }
-    // public int getQuantity() {
-    //     return this.quantity;
-    // }
 }

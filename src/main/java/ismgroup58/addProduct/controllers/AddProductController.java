@@ -26,8 +26,8 @@ public class AddProductController {
     }
 
     @GetMapping("")
-    public String showMyProductsPage(HttpSession session, Model model, @RequestParam(value="sort", required=false) String sort) { 
-                                    //
+    public String showMyProductsPage(HttpSession session, Model model, 
+                                    @RequestParam(value="sort", required=false) String sort) { 
                                     
         // retrieve the logged-in user from the session (or null)
         User user = null;
@@ -63,8 +63,8 @@ public class AddProductController {
             myproducts = ps.sortProducts(myproducts_before, sort);
         
         } catch (Exception e) {
-            //session.setAttribute("message", e.getMessage());
-            //don't handle
+            // don't handle here to show the "You currently have no products"
+            // once redirected to my-products.html".
         }
         model.addAttribute("myproducts", myproducts);
   

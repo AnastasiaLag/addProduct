@@ -40,7 +40,8 @@
                 <h3 th:text="'by ' + ${session.currentuser.getUsername()}">by username</h3>
                 <div style="display: flex; align-items: center;">
                     <span style="font-size: 20px; font-weight: bold; margin-right: 5px;">$ </span>
-                    <input type="number" step="0.01" style="font-size: 20px; font-weight: bold; width: 28%;" name="price" placeholder="Price" required>
+                    <input type="number" step="0.01" style="font-size: 20px; font-weight: bold; width: 28%;" 
+                        name="price" placeholder="Price" required>
                 </div>
                 <div class="stock">
                     <h5>Stock: </h5>
@@ -48,7 +49,8 @@
                 </div>
                 <h3>Product Details <i class="fa fa-ident"></i></h3>
                 <div class="edit-text-class">
-                    <textarea class="edit-text-box" name="description" style="font-family: 'Times New Roman';" placeholder="With every full-stop / period the text will change line" required></textarea>
+                    <textarea class="edit-text-box" name="description" style="font-family: 'Times New Roman';" 
+                        placeholder="With every full-stop / period the text will change line" required></textarea>
                 </div>
             </div>
             <div class="add-buttons">
@@ -65,5 +67,4 @@
     <div th:replace="~{fragments/footer :: footerFragment}"></div>
 
 </body>
-
 </html>

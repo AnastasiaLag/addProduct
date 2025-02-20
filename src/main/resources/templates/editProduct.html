@@ -12,7 +12,7 @@
     <div class="small-container single-product">
         <div class="row">
             <div class="col-2">
-                <img th:src="'/' + @{${product.getImage()}}" width="100%"> <!--doesn't show image-->
+                <img th:src="'/' + @{${product.getImage()}}" width="100%">
             </div>
             <form class="col-2 edit" action="/my-products/edit/controller" method="POST">
                 <p th:text="'Home / ' + ${product.getCategory()}">Home / Category</p>

@@ -14,7 +14,6 @@
         <span th:text="${session.message}">Message</span>
         <span style="margin-bottom: 5px; top: 0; cursor: pointer;" class="close" id="closeMessage">&times;</span>
     </div>
-    <!-- session.setAttribute("message", null); //make sure the message doesn't appear again when page is refreshed -->
 
     <!-- If currentuser has no products, show message and "Add a new Product" button only -->
     <div th:if="${myproducts.isEmpty() == true}" class="small-container" style="text-align: center;">

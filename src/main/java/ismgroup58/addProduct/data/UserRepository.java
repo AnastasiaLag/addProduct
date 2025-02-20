@@ -62,8 +62,6 @@ public class UserRepository {
         }
     }
 
-    //======================REGISTER NEEDS FIXING!!!======================
-
 	/**
 	 * Registers a new user in the DB given a User
      * object created by the fields from the Register Form.
@@ -111,7 +109,7 @@ public class UserRepository {
         if (usr != null) { // user found -> Error Message!
             throw new Exception("Sorry, username, email or ssn already registered");
         } else { // user not found -> Insert user into DB
-            user.setJoined(LocalDate.now().toString());
+            user.setJoined(LocalDate.now().toString()); //get the current date
             query = "INSERT INTO user (name, email, ssn, username, password, image, joined) VALUES (?, ?, ?, ?, ?, ?, ?)";
             jdbcTemplate.update(query, user.getName(), user.getEmail(), user.getSSN(),
                     user.getUsername(), user.getPassword(), user.getImage(), user.getJoined());
