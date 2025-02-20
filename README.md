@@ -84,8 +84,8 @@ java -jar target/addProduct-0.0.1-SNAPSHOT.jar
 | 6 | Click the little **garbage bin** 🗑️ on the picture of the product you created. | Display of deletion success message: <br> 🟩 Product deleted successfully! |
 | 7 | Click ***Log Out*** from the navbar | Redirection to /login after desplaying a success message: <br> 🟩 Logout Successful! |
 | 8 | Type ```http://localhost:8080/my-products``` as a URL | Redirection to /login with an error message display: <br> 🟥 You have to login to view your products! |
-| 9 | In the login form fill in: <br> Username = ```luxeloom``` <br> Password = ```1112``` | Error message display: <br> 🟥 Wrong username or password |
-| 10 | Now fill in: <br> Username = ```luxeloom``` <br> Password = ```1111``` | Connection is successfull and you are redirected in luxeloom's product page |
+| 9 | In the login form fill in: <br> Username = ```luxeloom``` <br> Password = ```1112``` <br> and click ***Login*** | Error message display: <br> 🟥 Wrong username or password |
+| 10 | Now fill in: <br> Username = ```luxeloom``` <br> Password = ```1111``` <br> and click ***Login*** again | Connection is successfull and you are redirected in luxeloom's product page |
 
 ## Issues 🚩
 * View Product Reviews
