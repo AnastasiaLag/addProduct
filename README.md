@@ -41,7 +41,7 @@ The user sees their products, can edit, delete and add products, as well as see 
 ### Step by step guide 👣
 1. Clone the repository:
 ```sh
-git clone git@github.com:AnastasiaLag/addProduct.git
+git clone https://github.com/AnastasiaLag/addProduct.git
 ```
 2. Navigate to the project resources:   
 ```sh
