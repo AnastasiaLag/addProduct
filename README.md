@@ -66,7 +66,7 @@ mvn clean install
 ```sh
 java -jar target/addProduct-0.0.1-SNAPSHOT.jar
 ```
-6. Open [http://localhost:8080/login](http://localhost:8080/login) and start experimenting or follow the [Test Cases](https://github.com/AnastasiaLag/addProduct/edit/main/README.md#test-cases-) below 😉
+6. Open [http://localhost:8080/login](http://localhost:8080/login) and start experimenting or follow the [Test Cases](https://github.com/AnastasiaLag/addProduct?tab=readme-ov-file#test-cases-) below 😉
 
 > [!Note]
 > Many functions don't work because they don't apply to the specific Use Case.   
