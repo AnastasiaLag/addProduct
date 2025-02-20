@@ -1,9 +1,10 @@
 # Add Product using Spring Boot 🍃
-## Overview 💡
-This project is a Spring Boot application hosted locally that implements a specific 
-use case of a larger group project, **Cartel: a B2B e-shop** that you can check out by clicking [here](http://ism.dmst.aueb.gr/ismgroup58/browse-products.jsp)   
+## Overview 
+This project is a Spring Boot application hosted locally that implements a specific use case of a larger group project,   
+**Cartel: a B2B e-shop** that you can check out by clicking [here](http://ism.dmst.aueb.gr/ismgroup58/browse-products.jsp)   
+The application follows a 3-tier architecture with a Presentation, Application and Database Layer (MVC Framework)
 
-## More about the Use Case «Manage Products» 🧐
+## More about the Use Case «Manage Products» 🔎
 ### Use Case Diagamm 
 A small diagramm illustrating the limits of the specific the application   
 
@@ -49,7 +50,7 @@ cd addProduct/src/main/resources
 > [!TIP]
 > Use Git Bash so that you don't have to change the commands!
 
-3. Open [application.properties](src/main/resources/application.properties) file in a text editor and fill in the database credentials accordingly
+3. Open [application.properties](src/main/resources/application.properties) file in a text editor and fill in the database credentials accordingly.   
 The file should look something like this:
 ```sh
 spring.application.name=addProduct
@@ -98,3 +99,6 @@ java -jar target/addProduct-0.0.1-SNAPSHOT.jar
 * [Conversation 1](https://chatgpt.com/share/67b6748b-10fc-8013-bf58-a87597d96ca2)
 * [Conversation 2](https://chatgpt.com/share/67b674d9-9e38-8013-b341-7ec041e08711)
 * [Conversation 3](https://chatgpt.com/share/67b674e6-a8ac-8013-aaee-aaf738b31072)
+
+## License ⚖️
+This project is licensed under the [Apache-2.0 License](https://github.com/AnastasiaLag/addProduct?tab=Apache-2.0-1-ov-file).
