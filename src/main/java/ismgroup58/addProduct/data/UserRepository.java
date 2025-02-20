@@ -61,37 +61,14 @@ public class UserRepository {
             throw new Exception("Wrong username or password");
         }
     }
-
-	/**
-	 * Registers a new user in the DB given a User
+  
+    /**
+     * Registers a new user in the DB given a User
      * object created by the fields from the Register Form.
-	 * 
-	 * @param user the User object created agter registering
-	 * @throws Exception if a user with these fields already exists
-	 */
-	// public void register(User user) throws Exception {
-
-	// 	// check if user already exists
-	// 	String query = "SELECT * FROM user WHERE username = ? OR email = ? OR ssn = ?";
-    //     User usr = jdbcTemplate.queryForObject(query, new UserMapper(),
-    //                                 user.getUsername(), user.getEmail(), user.getSSN() );
-    
-    //     if (usr != null) { //user found -> Error Message!
-           
-    //         throw new Exception("Sorry, username, email or ssn already registered");
-       
-    //     } else { // user not found -> Insert user into DB
-        
-    //         // change the Query
-    //         query = "INSERT INTO user (name, email, ssn, username, password,"
-    //                 + " image, joined) VALUES (?, ?, ?, ?, ?, ?, ?);";
-    //         jdbcTemplate.update(query, user.getName(), user.getEmail(), user.getSSN(),
-    //                             user.getUsername(), user.getPassword(), user.getImage(),
-    //                             user.getJoined());
-
-    //     }
-	// }
-    
+     * 
+     * @param user the User object created agter registering
+     * @throws Exception if a user with these fields already exists
+     */ 
     public void register(User user) throws Exception {
 
         // check if user already exists
@@ -99,8 +76,8 @@ public class UserRepository {
         User usr = null;
 
         try {
-            usr = jdbcTemplate.queryForObject(query, new UserMapper(),
-                    user.getUsername(), user.getEmail(), user.getSSN());
+            usr = jdbcTemplate.queryForObject(query, new UserMapper(), user.getUsername(),
+                                              user.getEmail(), user.getSSN());
         } catch (EmptyResultDataAccessException e) {
             // No user found, this is expected behavior, so just set usr to null
             usr = null;
@@ -109,10 +86,13 @@ public class UserRepository {
         if (usr != null) { // user found -> Error Message!
             throw new Exception("Sorry, username, email or ssn already registered");
         } else { // user not found -> Insert user into DB
+            
             user.setJoined(LocalDate.now().toString()); //get the current date
+
+            // change the quary
             query = "INSERT INTO user (name, email, ssn, username, password, image, joined) VALUES (?, ?, ?, ?, ?, ?, ?)";
             jdbcTemplate.update(query, user.getName(), user.getEmail(), user.getSSN(),
-                    user.getUsername(), user.getPassword(), user.getImage(), user.getJoined());
+                                user.getUsername(), user.getPassword(), user.getImage(), user.getJoined());
         }
     }
 

@@ -85,6 +85,7 @@ public class User {
     public int getZip() {
         return this.zip;
     }
+    
     /* Setter */
     public void setJoined(String joined) {
         this.joined = joined;

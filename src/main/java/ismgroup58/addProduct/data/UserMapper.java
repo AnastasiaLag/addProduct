@@ -7,9 +7,6 @@ import org.springframework.jdbc.core.RowMapper;
 
 import ismgroup58.addProduct.app.User;
 
-/**
- * JPA implementation of User.
- */
 public class UserMapper implements RowMapper<User>{
     
     @Override

@@ -19,8 +19,8 @@ public class ProductMapper implements RowMapper<Product> {
                         rs.getDouble("price"),
                         rs.getInt("stock"),
                         0, // the ratings are calculated through a method, 
-                                  // we use another class in the project Review.java,
-                                  // I don't think it's is important to show here.
+                                  // we use another class in the project: Review.java,
+                                  // I don't think it is important to show here.
                         rs.getString("supplier")
                         );
     }
