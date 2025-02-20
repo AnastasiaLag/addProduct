@@ -1,11 +1,22 @@
 # Add Product using Spring Boot 🍃
-## Overview 
+
+## Table of Contents 📑
+* [Overview 💡](#overview-)
+* [More about the Use Case 🔎](#more-about-the-use-case-)   
+* [Setup 🛠️](#setup-%EF%B8%8F)
+* [Test Cases 📝](#test-cases-)
+* [Issues 🚩](#issues-)
+* [ChatGPT 🤖](#chatgpt-)
+* [License ⚖️](#license-%EF%B8%8F)
+
+
+## Overview 💡
 This project is a Spring Boot application hosted locally that implements a specific use case of a larger group project,   
 **Cartel: a B2B e-shop** that you can check out by clicking [here](http://ism.dmst.aueb.gr/ismgroup58/browse-products.jsp)   
 The application follows a 3-tier architecture with a Presentation, Application and Database Layer (MVC Framework)
 
-## More about the Use Case «Manage Products» 🔎
-### Use Case Diagamm 
+## More about the Use Case 🔎
+### Use Case Diagamm for «Manage Products»
 A small diagramm illustrating the limits of the specific the application   
 
 <img width="374" alt="ManageProducts" src="https://github.com/user-attachments/assets/d7b2ee8e-efeb-41ac-b635-0dc99428c832" />
@@ -71,7 +82,7 @@ mvn clean install
 ```sh
 java -jar target/addProduct-0.0.1-SNAPSHOT.jar
 ```
-6. Open [http://localhost:8080/login](http://localhost:8080/login) and start experimenting or follow the [Test Cases](https://github.com/AnastasiaLag/addProduct?tab=readme-ov-file#test-cases-) below 😉
+6. Open [http://localhost:8080/login](http://localhost:8080/login) and start experimenting or follow the [Test Cases](#test-cases-) below 😉
 
 > [!Note]
 > Many functions don't work because they don't apply to the specific Use Case.   
