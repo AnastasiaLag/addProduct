@@ -43,14 +43,8 @@ The user sees their products, can edit, delete and add products, as well as see 
 ```sh
 git clone https://github.com/AnastasiaLag/addProduct.git
 ```
-2. Navigate to the project resources:   
-```sh
-cd addProduct/src/main/resources
-```
-> [!TIP]
-> Use Git Bash so that you don't have to change the commands!
 
-3. Open [application.properties](src/main/resources/application.properties) file in a text editor and fill in the database credentials accordingly.   
+2. Open [application.properties](src/main/resources/application.properties) file in a text editor and fill in the database credentials accordingly.   
 The file should look something like this:
 ```sh
 spring.application.name=addProduct
@@ -59,15 +53,20 @@ spring.datasource.url=********
 spring.datasource.username==********
 spring.datasource.password==********
 ```
-4. Build the project:
+
+> [!TIP]
+> The file is inside the project's resources   
+> Path: ```addProduct/src/main/resources```
+
+3. Build the project:
 ```sh
 mvn clean install
 ```
-5. Run the application:
+4. Run the application:
 ```sh
 java -jar target/addProduct-0.0.1-SNAPSHOT.jar
 ```
-6. Open [http://localhost:8080/login](http://localhost:8080/login) and start experimenting or follow the [Test Cases](https://github.com/AnastasiaLag/addProduct?tab=readme-ov-file#test-cases-) below 😉
+5. Open [http://localhost:8080/login](http://localhost:8080/login) and start experimenting or follow the [Test Cases](https://github.com/AnastasiaLag/addProduct?tab=readme-ov-file#test-cases-) below 😉
 
 > [!Note]
 > Many functions don't work because they don't apply to the specific Use Case.   
