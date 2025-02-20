@@ -56,17 +56,22 @@ spring.datasource.password==********
 
 > [!TIP]
 > The file is inside the project's resources   
-> Path: ```addProduct/src/main/resources```
+> Path: ```/addProduct/src/main/resources```
 
-3. Build the project:
+3. Navigate inside the project:
+```sh
+cd addProduct
+```
+
+4. Build the project:
 ```sh
 mvn clean install
 ```
-4. Run the application:
+5. Run the application:
 ```sh
 java -jar target/addProduct-0.0.1-SNAPSHOT.jar
 ```
-5. Open [http://localhost:8080/login](http://localhost:8080/login) and start experimenting or follow the [Test Cases](https://github.com/AnastasiaLag/addProduct?tab=readme-ov-file#test-cases-) below 😉
+6. Open [http://localhost:8080/login](http://localhost:8080/login) and start experimenting or follow the [Test Cases](https://github.com/AnastasiaLag/addProduct?tab=readme-ov-file#test-cases-) below 😉
 
 > [!Note]
 > Many functions don't work because they don't apply to the specific Use Case.   
